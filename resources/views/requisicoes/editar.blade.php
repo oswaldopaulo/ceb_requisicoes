@@ -62,6 +62,28 @@
                     @endforeach
                 @endif
 
+
+                <div class="form-group">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="S" id="mistura" name="mistura"
+                               @if($r->mistura=='S')checked @endif disabled>
+                        <label class="form-check-label" for="mistura">
+                            Mistura? <small class="text-muted">Oculta a descrição do item no relatório.</small>
+                        </label>
+                    </div>
+
+
+                </div>
+
+                <div class="form-group row">
+                    <label for="dest" class="col-sm-1 col-form-label">Destino</label>
+                    <div class="col-sm-8">
+                        <input type="text" name="dest" id="dest" class="form-control" value="{{$r->dest}}" readonly>
+
+                    </div>
+
+                </div>
+
 				 <div class="form-group row">
 
 				 	<label for="cod_item" class="col-sm-1 col-form-label">Cod Item</label>

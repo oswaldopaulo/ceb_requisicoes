@@ -25,8 +25,7 @@ class RequisicoesRequest extends FormRequest
     {
         return [
             'cod_item' => 'required|max:30',
-
-
+            'dest' => 'max:100',
 
 
         ];
