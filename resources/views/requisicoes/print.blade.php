@@ -139,7 +139,7 @@
 
                             <label for="den_item" class="col-sm-1 col-form-label"><strong>Total</strong></label>
                             <label for="den_item"
-                                   class="col-sm-2 col-form-label text-right">{{ number_format((float)($r->misturas * $r->solicitada), 2, ',', '') }}</label>
+                                   class="col-sm-2 col-form-label text-right">{{ number_format((float)($r->misturas * $r->solicitada), 3, ',', '') }}</label>
 
                         </div>
 
@@ -196,8 +196,8 @@
                                             <td>{{ $i->num_aviso_rec }}</td>
                                             <td>{{ $i->lote }}</td>
                                             <td>{{ $i->perda }}</td>
-                                            <td>{{ number_format((float)($i->qtd ), 2, ',', '.') }}
-                                                / {{ number_format((float)($i->qtdtotal ), 2, ',', '.') }} <input
+                                            <td>{{ number_format((float)($i->qtd ), 3, ',', '.') }}
+                                                / {{ number_format((float)($i->qtdtotal ), 3, ',', '.') }} <input
                                                         type="hidden" name="qtd[]" value="{{ $i->qtd }}"><input
                                                         type="hidden" name="qtdtotal[]" value="{{ $i->qtdtotal}}"></td>
                                             <td>{{ $i->cod_unid_med }} <input type="hidden" name="cod_unid_med2[]"
@@ -206,7 +206,7 @@
                                             <td>{{ $i->cod_local_estoq }}<input type="hidden" name="cod_local_estoq[]"
                                                                                 value="{{ $i->cod_local_estoq }}"
                                                                                 class="form-control" readonly></td>
-                                            <td style="text-align: right">{{ number_format((float)($i->estoque  ), 2, ',', '.') }}
+                                            <td style="text-align: right">{{ number_format((float)($i->estoque  ), 3, ',', '.') }}
                                                 <input type="hidden" name="estoque[]" value="{{ $i->estoque}}"
                                                        class="form-control" readonly></td>
                                         </tr>

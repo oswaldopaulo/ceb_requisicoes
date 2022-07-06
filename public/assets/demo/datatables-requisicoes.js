@@ -22,7 +22,7 @@ $(document).ready(function () {
                         novo();
                     }
                 },
-                {
+                /*{
 
                     className: 'btn btn-primary xmargin-b',
                     titleAttr: 'Novo Registro.',
@@ -30,7 +30,7 @@ $(document).ready(function () {
                     action: function (e, dt, node, config) {
                         novomanual();
                     }
-                }
+                }*/
                 ,
 
 

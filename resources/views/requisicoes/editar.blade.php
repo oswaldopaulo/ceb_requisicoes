@@ -257,10 +257,10 @@
                    		<td><input type="text" name="ar[]" maxlength="6" class="form-control" value="{{ $i->num_aviso_rec }}"></td>
                    		<td><input type="text" name="lote[]"  maxlength="20" class="form-control" value="{{ $i->lote }}"></td>
                    		<td><input type="number" step=".001" name="perda[]"  class="form-control" value="{{ $i->perda }}"></td>
-                   		<td>{{ number_format((float)($i->qtd ), 2, ',', '.') }} / {{ number_format((float)($i->qtdtotal ), 2, ',', '.') }} <input type="hidden" name="qtd[]" value="{{ $i->qtd }}"><input type="hidden" name="qtdtotal[]" value="{{ $i->qtdtotal}}" ></td>
+                   		<td>{{ number_format((float)($i->qtd ), 3, ',', '.') }} / {{ number_format((float)($i->qtdtotal ), 3, ',', '.') }} <input type="hidden" name="qtd[]" value="{{ $i->qtd }}"><input type="hidden" name="qtdtotal[]" value="{{ $i->qtdtotal}}" ></td>
                     	<td>{{ $i->cod_unid_med }} <input type="hidden" name="cod_unid_med2[]" value="{{ $i->cod_unid_med }}"  readonly></td>
                   		<td>{{ $i->cod_local_estoq }}<input type="hidden" name="cod_local_estoq[]" value="{{ $i->cod_local_estoq }}" class="form-control" readonly></td>
-                    	<td style="text-align: right">{{ number_format((float)($i->estoque  ), 2, ',', '.') }}<input type="hidden" name="estoque[]" value="{{ $i->estoque}}" class="form-control" readonly></td>
+                    	<td style="text-align: right">{{ number_format((float)($i->estoque  ), 3, ',', '.') }}<input type="hidden" name="estoque[]" value="{{ $i->estoque}}" class="form-control" readonly></td>
                     </tr>
                      @endforeach
 

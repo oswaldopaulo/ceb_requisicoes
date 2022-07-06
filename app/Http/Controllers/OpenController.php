@@ -46,7 +46,7 @@ class OpenController extends ControllerOpen
         
         $itens =  DB::connection('oracle')->select("Select estrutura.*, item.*,
         (qtd_necessaria*$solicitada) as qtd,
-        ((qtd_necessaria*10)*$misturas) as qtdtotal,
+        ((qtd_necessaria*$solicitada)*$misturas) as qtdtotal,
         NVL((select sum(qtd_saldo) as saldo from Estoque_lote where cod_item = estrutura.cod_item_compon and cod_local=item.cod_local_estoq),0) as estoque
         
         from estrutura, item
