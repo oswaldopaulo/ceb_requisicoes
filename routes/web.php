@@ -45,6 +45,8 @@ Route::get('usuarios/remove/{id}', 'UsuariosController@remove')->where('id','[0-
 Route::get('requisicoes', 'RequisicoesController@index');
 Route::get('requisicoes/novo', 'RequisicoesController@novo');
 Route::post('requisicoes/novo', 'RequisicoesController@insert');
+Route::get('requisicoes/novomanual', 'RequisicoesController@novomanual');
+Route::post('requisicoes/novomanual', 'RequisicoesController@insertmanual');
 Route::get('requisicoes/print/{id}', 'RequisicoesController@print');
 Route::get('requisicoes/printtools/{id}', 'RequisicoesController@printtools');
 Route::get('requisicoes/editar/{id}', 'RequisicoesController@editar');

@@ -17,12 +17,21 @@ $(document).ready(function () {
 
                     className: 'btn btn-primary xmargin-b',
                     titleAttr: 'Novo Registro.',
-                    text: 'Novo',
+                    text: 'Nova requisição',
                     action: function (e, dt, node, config) {
                         novo();
                     }
                 },
+                {
 
+                    className: 'btn btn-primary xmargin-b',
+                    titleAttr: 'Novo Registro.',
+                    text: 'Novo requisição manual',
+                    action: function (e, dt, node, config) {
+                        novomanual();
+                    }
+                }
+                ,
 
 
             ]

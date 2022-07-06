@@ -6,6 +6,11 @@
 		
 		window.location.href = "{{ url('requisicoes/novo')}}";
 	}
+
+    function novomanual() {
+
+        window.location.href = "{{ url('requisicoes/novomanual')}}";
+    }
 </script>
 <style>
  td {

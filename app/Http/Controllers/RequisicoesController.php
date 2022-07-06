@@ -19,8 +19,8 @@ class RequisicoesController extends Controller
                 (DB::raw("(SELECT nom_funcionario FROM funcionario u1 WHERE u1.num_matricula = ceb_requisicoes.cod_fun1 and cod_empresa='04') AS nom_funcionario1")),
                 (DB::raw("(SELECT nom_funcionario FROM funcionario u2 WHERE u2.num_matricula = ceb_requisicoes.cod_fun2 and cod_empresa='04') AS nom_funcionario2"))
 
-            );
-
+            )
+            ->where('cod_item', '!=', '000.000');
         if (Auth::user()->tipo != 1) $t->where('ativo', '=', 'S');
 
         $t = $t->get();
@@ -33,6 +33,13 @@ class RequisicoesController extends Controller
     {
 
         return view('requisicoes/novo');
+
+    }
+
+    function novomanual()
+    {
+
+        return view('requisicoes/novomanual');
 
     }
 
@@ -82,6 +89,74 @@ class RequisicoesController extends Controller
     function insert(RequisicoesRequest $r)
     {
 
+        $id = self::getId() + 1;
+        $id_itens = self::getIdItens() + 1;
+
+        DB::beginTransaction();
+
+        try {
+            DB::connection('oracle')->table('ceb_requisicoes')->insert([
+                'id' => $id,
+                'cod_item' => Request::input('cod_item'),
+                'den_item' => Request::input('den_item'),
+                'cod_unid_med' => Request::input('cod_unid_med'),
+                'cod_fun1' => Request::input('cod_fun1'),
+                'cod_fun2' => Request::input('cod_fun2'),
+                'num_ordem' => Request::input('num_ordem'),
+                'dat' => str_replace('T', ' ', Request::input('date')),
+                'fim' => str_replace('T', ' ', Request::input('fim')),
+                'misturas' => Request::input('horas'),
+                'solicitada' => Request::input('solicitadas'),
+                'misturas' => Request::input('misturas'),
+                'usuario' => Auth::user()->username,
+                'mistura' => Request::input('mistura') ? 'S' : 'N',
+                'dest' => Request::input('dest'),
+
+
+            ]);
+
+
+            if (Request::input('cod_item_compon')) {
+
+                foreach (Request::input('cod_item_compon') as $key => $value) {
+
+                    DB::connection('oracle')->table('ceb_requisicoes_items')->insert([
+                        'id' => $id_itens,
+                        'id_rec' => $id,
+                        'cod_comp' => $value,
+                        'num_aviso_rec' => Request::input('ar')[$key],
+                        //num_seq NUMBER(3,0),
+                        'lote' => Request::input('lote')[$key],
+                        'qtd' => Request::input('qtd')[$key],
+                        'cod_unid_med' => Request::input('cod_unid_med2')[$key],
+                        'cod_local_estoq' => Request::input('cod_local_estoq')[$key],
+                        'estoque' => Request::input('estoque')[$key],
+                        'qtdtotal' => Request::input('qtdtotal')[$key],
+                        'perda' => Request::input('perda')[$key],
+                        //'qtd_separada' =>Request::input('lote')[$key]
+                    ]);
+
+                    $id_itens++;
+                }
+            }
+
+            DB::commit();
+
+
+        } catch (\Exception $e) {
+            DB::rollback();
+            Log::critical($e);
+
+
+        }
+
+
+        return redirect()->action('RequisicoesController@index')->with(['id' => $id, 'desc' => Request::input('descricao')]);
+    }
+
+    function insertmanual(RequisicoesRequest $r)
+    {
+        Request::all();
         $id = self::getId() + 1;
         $id_itens = self::getIdItens() + 1;
 
