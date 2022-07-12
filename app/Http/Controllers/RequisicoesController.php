@@ -100,11 +100,11 @@ class RequisicoesController extends Controller
                 'cod_item' => Request::input('cod_item'),
                 'den_item' => Request::input('den_item'),
                 'cod_unid_med' => Request::input('cod_unid_med'),
-                'cod_fun1' => Request::input('cod_fun1'),
-                'cod_fun2' => Request::input('cod_fun2'),
+                //'cod_fun1' => Request::input('cod_fun1'),
+               // 'cod_fun2' => Request::input('cod_fun2'),
                 'num_ordem' => Request::input('num_ordem'),
-                'dat' => str_replace('T', ' ', Request::input('date')),
-                'fim' => str_replace('T', ' ', Request::input('fim')),
+                //'dat' => str_replace('T', ' ', Request::input('date')),
+                //'fim' => str_replace('T', ' ', Request::input('fim')),
                 'misturas' => Request::input('horas'),
                 'solicitada' => Request::input('solicitadas'),
                 'misturas' => Request::input('misturas'),
@@ -144,6 +144,7 @@ class RequisicoesController extends Controller
 
 
         } catch (\Exception $e) {
+            return $e;
             DB::rollback();
             Log::critical($e);
 
@@ -354,6 +355,7 @@ class RequisicoesController extends Controller
                     'dat' => str_replace('T', ' ', Request::input('date')),
                     'fim' => str_replace('T', ' ', Request::input('fim')),
                     'horas' => Request::input('horas'),
+                    'mistura' => Request::input('mistura') ? 'S' : 'N',
 
 
                 ]);

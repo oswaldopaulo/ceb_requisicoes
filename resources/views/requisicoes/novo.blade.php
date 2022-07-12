@@ -99,17 +99,17 @@
 
                         <div class="form-group row">
 
-                            <label for=dat" class="col-sm-1 col-form-label">Inicio</label>
+<!--                            <label for=dat" class="col-sm-1 col-form-label">Inicio</label>
                             <div class="col-sm-2">
                                 <input type="datetime-local" name="date" id="dat" class="form-control"
-                                       value="<?php echo date('Y-m-d'); ?>">
+                                       disabled>
                             </div>
 
 
                             <label for=fim" class="col-sm-1 col-form-label">Fim</label>
                             <div class="col-sm-2">
                                 <input type="datetime-local" name="fim" id="fim" class="form-control"
-                                       value="<?php echo date('Y-m-d'); ?>">
+                                      disabled>
                             </div>
 
 
@@ -117,20 +117,21 @@
                             <div class="col-sm-2">
                                 <input type="number" name="horas" id="horas" class="form-control"
                                        value="{{old('horas')}}">
-                            </div>
+                            </div>-->
 
+
+
+                        </div>
+
+
+                        <div class="form-group row">
                             <label for="num_ordem" class="col-sm-1 col-form-label">Nº Ordem</label>
                             <div class="col-sm-2">
                                 <input type="number" name="num_ordem" id="num_ordem" class="form-control"
                                        value="{{old('num_ordem')}}">
                             </div>
 
-                        </div>
-
-
-                        <div class="form-group row">
-
-                            <label for="cod_fun1" class="col-sm-1 col-form-label">Funcionario 1</label>
+<!--                            <label for="cod_fun1" class="col-sm-1 col-form-label">Funcionario 1</label>
                             <div class="col-sm-2">
                                 <select class="form-control selectpicker" data-live-search="true" name="cod_fun1"
                                         placeholder="Funcionario">
@@ -143,10 +144,10 @@
                                         @endforeach
                                     @endif
                                 </select>
-                            </div>
+                            </div>-->
 
-                            <label for="cod_fun2" class="col-sm-1 col-form-label">Funcionario 2</label>
-                            <div class="col-sm-2">
+<!--                            <label for="cod_fun2" class="col-sm-1 col-form-label">Funcionario 2</label>-->
+<!--                            <div class="col-sm-2">
                                 <select class="form-control selectpicker" data-live-search="true" name="cod_fun2"
                                         placeholder="Funcionario">
                                     <option value="">Selecione</option>
@@ -158,12 +159,12 @@
                                         @endforeach
                                     @endif
                                 </select>
-                            </div>
+                            </div>-->
 
 
                             <label for="solicitadas" class="col-sm-1 col-form-label">Solicitadas</label>
                             <div class="col-sm-1">
-                                <input type="number" name="solicitadas" id="solicitadas" class="form-control"
+                                <input type="number" step=".100" name="solicitadas" id="solicitadas" class="form-control"
                                        onfocusout="soma_mistura()" required value="{{old('solicitadas')}}">
                             </div>
 

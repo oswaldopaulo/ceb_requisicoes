@@ -185,9 +185,9 @@
 
 
                                     @foreach($ti as $i)
-                                        <tr>
+                                        <tr style="font-size: 12px">
                                             <td> {{ $i->cod_comp }}  @if($r->mistura=='N')
-                                                    - {{Str::limit($i->den_item,30)}}
+                                                    - {{$i->den_item}}
                                                 @endif<input type="hidden" name="cod_item_compon[]"
                                                              value="{{ $i->cod_comp }}"><input type="hidden"
                                                                                                name="iditem[]"
@@ -195,7 +195,7 @@
                                             </td>
                                             <td>{{ $i->num_aviso_rec }}</td>
                                             <td>{{ $i->lote }}</td>
-                                            <td>{{ $i->perda }}</td>
+                                            <td>{{ $i->perda?number_format((float)($i->perda), 3, ',', '.'):'' }}</td>
                                             <td>{{ number_format((float)($i->qtd ), 3, ',', '.') }}
                                                 / {{ number_format((float)($i->qtdtotal ), 3, ',', '.') }} <input
                                                         type="hidden" name="qtd[]" value="{{ $i->qtd }}"><input
