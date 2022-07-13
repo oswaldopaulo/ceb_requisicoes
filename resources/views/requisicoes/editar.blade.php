@@ -250,7 +250,7 @@
                                             <td> {{ $i->cod_comp }} <input type="hidden" name="cod_item_compon[]"
                                                                            value="{{ $i->cod_comp }}"><input
                                                         type="hidden" name="iditem[]" value="{{ $i->id }}"></td>
-                                            <td><input type="text" name="ar[]" maxlength="6" class="form-control"
+                                            <td><input type="number" name="ar[]" maxlength="6" class="form-control"
                                                        value="{{ $i->num_aviso_rec }}"></td>
                                             <td><input type="text" name="lote[]" maxlength="20" class="form-control"
                                                        value="{{ $i->lote }}"></td>

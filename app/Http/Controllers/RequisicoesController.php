@@ -382,7 +382,7 @@ class RequisicoesController extends Controller
             DB::commit();
 
         } catch (\Exception $e) {
-
+            return $e;
             Log::critical($e);
 
 
