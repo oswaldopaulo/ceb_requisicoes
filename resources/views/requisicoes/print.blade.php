@@ -18,28 +18,19 @@
     <link href="{{ asset ('vendor/datatables-1.10.21/css/dataTables.bootstrap4.min.css') }}" rel="stylesheet"/>
     <script src="{{ asset ('js/jquery-3.5.1.min.js') }}"></script>
     <script src="{{ asset ('vendor/fontawesome-free-5.13.1-web/js/all.min.js') }}"></script>
-
-
     <link rel="stylesheet" type="text/css"
           href="https://cdn.datatables.net/v/dt/jszip-2.5.0/af-2.3.5/b-1.6.2/b-colvis-1.6.2/b-flash-1.6.2/b-html5-1.6.2/b-print-1.6.2/datatables.min.css"/>
-
-
 </head>
 <body class="sb-nav-fixed">
-
-
 <header>
     <div class="container-fluid">
         <h1 class="mt-4"><img alt="" src="{{ asset('assets/img/logo_ceb.jpg')}}"></h1>
-
-
         <div class="card mb-4">
             <div class="row">
                 <div class="col-sm-3">
                     <div>
                         <div class="card-body">
                             <h5 class="card-title">Assunto:</h5>
-
                         </div>
                     </div>
                 </div>
@@ -47,109 +38,70 @@
                     <div>
                         <div class="card-body">
                             <h2 class="card-title text-center">REQUISIÇÃO DE MATERIAIS</h2>
-
-
                         </div>
                     </div>
                 </div>
-
                 <div class="col-sm-3">
                     <div>
                         <div class="card-body">
                             <p class="card-title text-right">Data Emissão: {{ date('d/m/Y') }}</p>
                             <p class="card-title text-right">Hora Emissão: {{ date('H:i:s') }}</p>
-
-
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 </header>
 <main>
     <div class="container-fluid">
-
-
         <div class="mb-4">
-
-
             <form role="form" action="{{ url('requisicoes/editar')}}" class="form" method="post"
                   enctype="multipart/form-data">
                 <div class="card mb-4 border-0">
-
-
                     <div class="card-body ">
-
-
                         <input type="hidden" name="_token" value="{{{ csrf_token() }}}"/>
                         <input type="hidden" name="id" id="id" value="{{ $r->id}}"/>
-
                         @if(!empty($ignore))
                             @foreach($ignore as $i)
                                 <input type="hidden" id="ignore{{ $i }}" name="ignore{{ $i }}" value="{{ $r->$i }}"/>
-
                             @endforeach
                         @endif
-
                         <div class="form-group row">
-
                             <label for="cod_item" class="col-sm-2 col-form-label"><strong>ID: </strong> {{$r->id}}
                             </label>
-                            <label  class="col-sm-5 col-form-label">
+                            <label class="col-sm-5 col-form-label">
                                 <strong>Dest.: </strong> {{$r->dest}} </label>
-                            <label  class="col-sm-2 col-form-label">
+                            <label class="col-sm-2 col-form-label">
                                 <strong>Ordem: </strong> {{$r->num_ordem}} </label>
-
                             <label for="den_item" class="col-sm-2 col-form-label"><strong>UN</strong> </label>
-                            <label for="den_item" class="col-sm-1 col-form-label text-right">{{$r->cod_unid_med}}</label>
-
+                            <label for="den_item"
+                                   class="col-sm-1 col-form-label text-right">{{$r->cod_unid_med}}</label>
                             <label for="den_item"
                                    class="col-sm-9 col-form-label"><strong>ITEM: </strong>{{$r->cod_item}} {{$r->den_item}}
                             </label>
-
-
                             <label for="den_item" class="col-sm-2 col-form-label"><strong>Solicitado:</strong></label>
                             <label for="den_item" class="col-sm-1 col-form-label text-right">{{$r->solicitada}}</label>
-
-
                             <label for="den_item" class="col-sm-3 col-form-label"><strong>Cod Fun
                                     1: </strong>{{trim($r->cod_fun1)}} {{$r->nom_funcionario1}}</label>
-
-
                             <label for="den_item" class="col-sm-6 col-form-label"><strong>Cod Fun
                                     2: </strong> {{trim($r->cod_fun2)}} {{$r->nom_funcionario2}}</label>
-
-
                             <label for="den_item" class="col-sm-2 col-form-label"><strong>Misturas</strong></label>
                             <label for="den_item" class="col-sm-1 col-form-label text-right">{{$r->misturas}}</label>
-
-
                             <label for="den_item"
                                    class="col-sm-3 col-form-label"><strong>Inicio: </strong>{{ $r->dat?date("d/m/Y H:m:s", strtotime($r->dat)):''}}
                             </label>
                             <label for="den_item"
                                    class="col-sm-3 col-form-label"><strong>Fim: </strong>{{ $r->fim?date("d/m/Y H:m:s", strtotime($r->fim)):''}}
                             </label>
-
                             <label for="den_item"
                                    class="col-sm-3 col-form-label"><strong>Horas: </strong>{{ $r->horas }}</label>
-
-
                             <label for="den_item" class="col-sm-1 col-form-label"><strong>Total</strong></label>
                             <label for="den_item"
                                    class="col-sm-2 col-form-label text-right">{{ number_format((float)($r->misturas * $r->solicitada), 3, ',', '') }}</label>
-
                         </div>
-
-
                     </div>
-
-
                 </div>
-
-
                 <form role="form" action="{{ url('requisicoes/novo')}}" class="form" method="post"
                       enctype="multipart/form-data">
                     <div class="mb-4">
@@ -157,11 +109,7 @@
                             <i class="fas fa-table mr-1"></i>
                             Componentes
                         </div>
-
-
                         <div class="card-body">
-
-
                             <div class="table-responsive">
                                 <table class="table table-bordered text-nowrap" id="requisicoes_itens" width="100%"
                                        cellspacing="0">
@@ -175,15 +123,9 @@
                                         <th>UN</th>
                                         <th>Local</th>
                                         <th>Est. CEB</th>
-
-
                                     </tr>
                                     </thead>
-
-
                                     <tbody>
-
-
                                     @foreach($ti as $i)
                                         <tr style="font-size: 12px">
                                             <td> {{ $i->cod_comp }}  @if($r->mistura=='N')
@@ -211,32 +153,21 @@
                                                        class="form-control" readonly></td>
                                         </tr>
                                     @endforeach
-
-
                                     </tbody>
                                 </table>
                             </div>
-
-
                         </div>
                     </div>
-
-
                 </form>
-
         </div>
 </main>
-
 <footer>
     <div class="container-fluid">
-
-
         <div class="row">
             <div class="col-sm-4">
                 <div>
                     <div class="card-body">
                         <h5 class="card-title text-center">Separador</h5>
-
                     </div>
                 </div>
             </div>
@@ -244,26 +175,18 @@
                 <div>
                     <div class="card-body">
                         <h5 class="card-title text-center">Conferente</h5>
-
-
                     </div>
                 </div>
             </div>
-
             <div class="col-sm-4">
                 <div>
                     <div class="card-body">
                         <h5 class="card-title text-center">Recebido</h5>
-
-
                     </div>
                 </div>
             </div>
-
-
         </div>
     </div>
-
 </footer>
 <script type="text/javascript" src="{{ asset('js/getitem.js')}}"/>
 </script>
