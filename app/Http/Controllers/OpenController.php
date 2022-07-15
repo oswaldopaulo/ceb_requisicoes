@@ -82,7 +82,7 @@ class OpenController extends ControllerOpen
     static function  getFuncionarios(){
         
         
-        return  DB::connection('oracle')->select("select num_matricula, nom_funcionario from funcionario f where f.dat_demis is not null and cod_empresa = '04'");
+        return  DB::connection('oracle')->select("select num_matricula, nom_funcionario from funcionario f where f.dat_demis is null and cod_empresa = '04'");
         
         
     }
