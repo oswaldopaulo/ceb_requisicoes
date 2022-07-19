@@ -18,18 +18,7 @@
     <link href="{{ asset ('vendor/datatables-1.10.21/css/dataTables.bootstrap4.min.css') }}" rel="stylesheet"/>
     <script src="{{ asset ('js/jquery-3.5.1.min.js') }}"></script>
     <script src="{{ asset ('vendor/fontawesome-free-5.13.1-web/js/all.min.js') }}"></script>
-    <style>
-        @media print {
 
-            html, body {
-                height:100vh;
-                margin: 0 !important;
-                padding: 0 !important;
-                overflow: hidden;
-            }
-
-        }
-    </style>
     <link rel="stylesheet" type="text/css"
           href="https://cdn.datatables.net/v/dt/jszip-2.5.0/af-2.3.5/b-1.6.2/b-colvis-1.6.2/b-flash-1.6.2/b-html5-1.6.2/b-print-1.6.2/datatables.min.css"/>
 </head>
