@@ -22,7 +22,32 @@
     <link rel="stylesheet" type="text/css"
           href="https://cdn.datatables.net/v/dt/jszip-2.5.0/af-2.3.5/b-1.6.2/b-colvis-1.6.2/b-flash-1.6.2/b-html5-1.6.2/b-print-1.6.2/datatables.min.css"/>
 <style>
+    @media print {
+        html, body {
+            border: 1px solid white;
+            height: 99%;
+            page-break-after: avoid !important;
+            page-break-before: avoid !important;
+        }
+        .print-display-none,
+        .print-display-none * {
+            display: none !important;
+        }
+        .print-visibility-hide,
+        .print-visibility-hide * {
+            visibility: hidden !important;
+        }
+        .printme,
+        .printme * {
+            visibility: visible !important;
+        }
+        .printme {
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
 
+    }
 </style>
 </head>
 <body class="sb-nav-fixed">
