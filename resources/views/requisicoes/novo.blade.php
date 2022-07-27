@@ -164,7 +164,7 @@
 
                             <label for="solicitadas" class="col-sm-1 col-form-label">Solicitadas</label>
                             <div class="col-sm-1">
-                                <input type="number" step=".100" name="solicitadas" id="solicitadas" class="form-control"
+                                <input type="number" step=".001" name="solicitadas" id="solicitadas" class="form-control"
                                        onfocusout="soma_mistura()" required value="{{old('solicitadas')}}">
                             </div>
 

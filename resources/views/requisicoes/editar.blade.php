@@ -182,7 +182,7 @@
 
                             <label for="solicitadas" class="col-sm-1 col-form-label">Solicitadas</label>
                             <div class="col-sm-1">
-                                <input type="number" name="solicitadas" id="solicitadas" class="form-control"
+                                <input type="number" name="solicitadas" step="0.001" id="solicitadas" class="form-control"
                                        onchange="soma_mistura()" required value="{{$r->solicitada}}"
                                        readonly="readonly">
                             </div>
