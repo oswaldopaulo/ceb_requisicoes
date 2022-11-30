@@ -281,10 +281,13 @@
         function orderAddRow($data) {
             $("tbody").children().remove()
             $.each($data, function (index, value) {
-
+                var  letra = "";
+                if( mistura.value == 'S'){
+                    letra = "<input type=\"text\" name=\"letra[]\" size='1'  class=\"form-control\">";
+                }
 
                 var markup = "<tr>"
-                    + "<td>" + value.cod_item_compon + "<input type=\"hidden\" id=\"cod_item_compon[]\" name=\"cod_item_compon[]\" value='" + value.cod_item_compon + "'  readonly></td>"
+                    + "<td>" letra + value.cod_item_compon + "<input type=\"hidden\" id=\"cod_item_compon[]\" name=\"cod_item_compon[]\" value='" + value.cod_item_compon + "'  readonly></td>"
                     + "<td><input type=\"text\" maxlength=\"6\" name=\"ar[]\"  class=\"form-control\"></td>"
                     + "<td><input type=\"text\" maxlength=\"20\" name=\"lote[]\"  class=\"form-control\"></td>"
                     + "<td><input type=\"text\" name=\"perda[]\"  class=\"form-control\"></td>"

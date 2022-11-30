@@ -66,7 +66,7 @@
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                             <tr>
-                            	<th></th>
+                            	<th ></th>
                                 <th>#</th>
                                 <th>Nome</th>
                                 <th>Usuário</th>
@@ -79,7 +79,7 @@
                         <tbody>
                         @foreach($t as $r)
                             <tr>
-                            	<td style="text-align: right; white-space: nowrap"><a href="{{ url('usuarios/editar/' . $r->id)}}"> <i class="fas fa-edit mr-1 blue"></i></a><a href="#" onclick="modal('{{ url('/usuarios/remove/' . $r->id) }}')"><i class="fas fa-trash-alt mr-1 red"></i></a></td>
+                            	<td ><a href="{{ url('usuarios/editar/' . $r->id)}}"> <i class="fas fa-edit mr-1 blue"></i></a><a href="#" onclick="modal('{{ url('/usuarios/remove/' . $r->id) }}')"><i class="fas fa-trash-alt mr-1 red"></i></a></td>
                                 <td>{{$r->id}}</td>
                                 <td>{{$r->name}}</td>
                                 <td>{{$r->username}}</td>
