@@ -24,6 +24,7 @@ class RequisicoesController extends Controller
         if (Auth::user()->tipo != 1) $t->where('ativo', '=', 'S');
 
         if(!Request::input("all"))  $t->take(500);
+        $t->orderBy('id', 'DESC');
         $t = $t->get();
 
         return view('requisicoes/index')->with(['t' => $t]);
