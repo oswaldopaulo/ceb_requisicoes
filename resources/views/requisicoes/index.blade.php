@@ -65,7 +65,9 @@
         <div class="card mb-4">
             <div class="card-header">
                  <i class="fas fa-table mr-1"></i>
-                               Cadastros
+                               Cadastros @if(!Request::input('all'))
+                                    <small style="text-align: right"> (Filtrado ultimos 500 <a style="color: #0c77af" href="{{ url("requisicoes" . "?all=1") }}"> Mostrar Todos</a>)</small>
+                                             @endif
             </div>
             <div class="card-body">
                 <div class="table-responsive">

@@ -23,6 +23,7 @@ class RequisicoesController extends Controller
             ->where('cod_item', '!=', '000.000');
         if (Auth::user()->tipo != 1) $t->where('ativo', '=', 'S');
 
+        if(!Request::input("all"))  $t->take(500);
         $t = $t->get();
 
         return view('requisicoes/index')->with(['t' => $t]);
