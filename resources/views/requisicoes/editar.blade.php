@@ -228,7 +228,9 @@
                                        cellspacing="0">
                                     <thead>
                                     <tr>
-                                        <th  style="width: 50px" @if($r->mistura!='S') style="display: none" @endif>Letra</th>
+                                        @if($r->mistura=='S')
+                                            <th  style="width: 50px">Letra</th>
+                                        @endif
                                         <th>C.Comp</th>
                                         <th>AR</th>
                                         <th>Lote</th>
@@ -248,9 +250,10 @@
 
                                     @foreach($ti as $i)
                                         <tr>
-
+                                            @if($r->mistura=='S')
                                             <td><input type="text"  maxlength="1" name="letra[]" maxlength="6" class="form-control text-uppercase"
                                                        value="{{ $i->letra }}"></td>
+                                            @endif
 
                                             <td> {{ $i->cod_comp }} <input type="hidden" name="cod_item_compon[]"
                                                                            value="{{ $i->cod_comp }}"><input

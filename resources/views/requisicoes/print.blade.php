@@ -157,7 +157,7 @@
                                     <tbody>
                                     @foreach($ti as $i)
                                         <tr style="font-size: 12px">
-                                            <td>   <b style="font-size: large; margin-right: 2px"> {{ $i->letra ?? " " }}</b> {{ $i->cod_comp }}  @if($r->mistura=='N')
+                                            <td>   @if($r->mistura=='S')<b style="font-size: large; margin-right: 2px"> {{ $i->letra ?? " " }}</b> @endif {{ $i->cod_comp }}  @if($r->mistura=='N')
                                                     - {{$i->den_item}}
 
                                                 @endif
