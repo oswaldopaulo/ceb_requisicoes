@@ -13,7 +13,7 @@
     <script src="{{ asset ('vendor/fontawesome-free-5.13.1-web/js/all.min.js') }}"></script>
 
 
-    <link rel="stylesheet" type="text/css" href="{{ asset ('asset/datatables.min.css') }}"/>
+    <link rel="stylesheet" type="text/css" href="{{ asset ('assets/datatables.min.css') }}"/>
 
 
 </head>

@@ -157,9 +157,13 @@
                                     <tbody>
                                     @foreach($ti as $i)
                                         <tr style="font-size: 12px">
-                                            <td> {{ $i->cod_comp }}  @if($r->mistura=='N')
+                                            <td>   <b style="font-size: large; margin-right: 2px"> {{ $i->letra ?? " " }}</b> {{ $i->cod_comp }}  @if($r->mistura=='N')
                                                     - {{$i->den_item}}
-                                                @endif<input type="hidden" name="cod_item_compon[]"
+
+                                                @endif
+
+
+                                                <input type="hidden" name="cod_item_compon[]"
                                                              value="{{ $i->cod_comp }}"><input type="hidden"
                                                                                                name="iditem[]"
                                                                                                value="{{ $i->id }}">

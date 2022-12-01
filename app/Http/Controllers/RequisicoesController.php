@@ -133,6 +133,8 @@ class RequisicoesController extends Controller
                         'estoque' => Request::input('estoque')[$key],
                         'qtdtotal' => Request::input('qtdtotal')[$key],
                         'perda' => Request::input('perda')[$key],
+                        'letra' => strtoupper(Request::input('letra')[$key] ?? ""),
+
                         //'qtd_separada' =>Request::input('lote')[$key]
                     ]);
 
@@ -372,6 +374,7 @@ class RequisicoesController extends Controller
                             'num_aviso_rec' => Request::input('ar')[$key],
                             'lote' => Request::input('lote')[$key],
                             'perda' => Request::input('perda')[$key],
+                            'letra' => strtoupper(Request::input('letra')[$key] ?? ""),
 
                         ]);
 

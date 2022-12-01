@@ -210,6 +210,7 @@
                                    cellspacing="0">
                                 <thead>
                                 <tr>
+                                    <th  id="tdletra" style="width: 50px;">Letra</th>
                                     <th>C.Comp</th>
                                     <th>AR</th>
                                     <th>Lote</th>
@@ -254,7 +255,7 @@
 
             if (solicitadas.value > 0 && misturas.value > 0) {
                 total_misturas.value = (solicitadas.value * misturas.value).toFixed(3);
-                ;
+
             }
         }
 
@@ -281,13 +282,17 @@
         function orderAddRow($data) {
             $("tbody").children().remove()
             $.each($data, function (index, value) {
-                var  letra = "";
-                if( mistura.value == 'S'){
-                    letra = "<input type=\"text\" name=\"letra[]\" size='1'  class=\"form-control\">";
+                  letra = "";
+
+
+                if(mistura.checked){
+                    letra = "<input type=\"text\" name=\"letra[]\" maxlength=\"1\"  class=\"form-control text-uppercase\">";
+                  //  document.getElementById("tdletra").style="width: 30px; display: block";
                 }
 
                 var markup = "<tr>"
-                    + "<td>" letra + value.cod_item_compon + "<input type=\"hidden\" id=\"cod_item_compon[]\" name=\"cod_item_compon[]\" value='" + value.cod_item_compon + "'  readonly></td>"
+                    + "<td>" + letra + "</td>"
+                    + "<td>" + value.cod_item_compon + "<input type=\"hidden\" id=\"cod_item_compon[]\" name=\"cod_item_compon[]\" value='" + value.cod_item_compon + "'  readonly></td>"
                     + "<td><input type=\"text\" maxlength=\"6\" name=\"ar[]\"  class=\"form-control\"></td>"
                     + "<td><input type=\"text\" maxlength=\"20\" name=\"lote[]\"  class=\"form-control\"></td>"
                     + "<td><input type=\"text\" name=\"perda[]\"  class=\"form-control\"></td>"
@@ -297,7 +302,8 @@
                     + "<td style=\"text-align: right\">" + parseFloat(value.estoque).toFixed(2) + "<input type=\"hidden\" name=\"estoque[]\" value='" + parseFloat(value.estoque).toFixed(2) + "' class=\"form-control\" readonly></td>"
                     + "</tr>";
                 $("#requisicoes_itens").append(markup);
-                //renumber_table("#requisicoes_itens");
+
+
 
 
             });
