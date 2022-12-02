@@ -27,7 +27,15 @@ class OpenController extends ControllerOpen
        $item =  DB::connection('oracle')->table('item')
         ->where(DB::raw("TRIM(cod_item)"), '=',$id)
         ->where(['cod_empresa'=>'04'])
-        ->select('cod_item','den_item','cod_unid_med')->first();
+        ->select('cod_empresa','cod_item','den_item','cod_unid_med')->first();
+
+       if(!$item) {
+
+           $item =  DB::connection('oracle')->table('item')
+               ->where(DB::raw("TRIM(cod_item)"), '=',$id)
+               ->where(['cod_empresa'=>'05'])
+               ->select('cod_empresa','cod_item','den_item','cod_unid_med')->first();
+       }
        
         if($item){
             return response()->json($item);

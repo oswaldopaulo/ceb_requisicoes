@@ -74,9 +74,10 @@
                     <table class="table table-bordered" id="dataTable" width ="100%" cellspacing="0">
                         <thead>
                             <tr>
-                            	<th></th>
+                            	<th style="width: 50px"></th>
                             	<th>Id</th>
                             	@if(Auth::user()->tipo==1)<th>Ativo</th>@endif
+                                <th>D.Criação</th>
                                 <th>Item</th>
                                 <th>Sol.</th>
                                 <th>Mist.</th>
@@ -121,6 +122,7 @@
                             	</td>
                                 <td>{{$r->id}} </td>
                                 @if(Auth::user()->tipo==1) <td>{{$r->ativo}} </td>@endif
+                                <td>{{$r->criacao ? date("d/m/y H:m", strtotime($r->criacao)): "" }} </td>
                                 <td>{{$r->cod_item }} - {{$r->den_item }} </td>
                                 <td>{{ $r->solicitada }}</td>
                                 <td>{{ $r->misturas }}</td>

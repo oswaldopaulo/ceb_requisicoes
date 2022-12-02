@@ -1797,7 +1797,7 @@ pre code {
 }
 
 .table-bordered th {
-    text-align: center;
+    text-align: left;
     margin-bottom: 10px;
 }
 
