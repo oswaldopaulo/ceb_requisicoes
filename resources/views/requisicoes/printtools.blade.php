@@ -108,7 +108,7 @@
                     
                     
                     <label for="den_item" class="col-sm-2 col-form-label"><strong>Solicitado:</strong></label>
-                    <label for="den_item" class="col-sm-1 col-form-label">{{$r->solicitada}}</label>
+                    <label for="den_item" class="col-sm-1 col-form-label text-right">{{$r->solicitada}}</label>
                     
                     
                     <label for="den_item" class="col-sm-3 col-form-label"><strong>Cod Fun 1: </strong>{{trim($r->cod_fun1)}} {{$r->nom_funcionario1}}</label>
@@ -118,7 +118,7 @@
               
                     
                     <label for="den_item" class="col-sm-2 col-form-label"><strong>Misturas</strong></label>
-                    <label for="den_item" class="col-sm-1 col-form-label">{{$r->misturas}}</label>
+                    <label for="den_item" class="col-sm-1 col-form-label text-right">{{$r->misturas}}</label>
                     
                     
                   <label for="den_item" class="col-sm-3 col-form-label"><strong>Inicio: </strong>{{ $r->dat?date("d/m/Y H:m:s", strtotime($r->dat)):''}}</label>
@@ -130,8 +130,8 @@
             
                     
                     
-                    <label for="den_item" class="col-sm-2 col-form-label"><strong>Total</strong></label>
-                    <label for="den_item" class="col-sm-1 col-form-label">{{ number_format((float)($r->misturas * $r->solicitada), 2, '.', '') }}</label>
+                    <label for="den_item" class="col-sm-1 col-form-label"><strong>Total</strong></label>
+                    <label for="den_item" class="col-sm-2 col-form-label text-right">{{ number_format((float)($r->misturas * $r->solicitada), 2, '.', '') }}</label>
 
              	</div>
              	
@@ -152,7 +152,7 @@
         <div class="mb-4">
             <div class="card-header">
                  <i class="fas fa-table mr-1"></i>
-                               Componentes
+                               Insumos / Ferramentas
             </div>
 
 
@@ -180,7 +180,7 @@
                      
                      
                      @foreach($ti as $i)
-                    <tr>
+                    <tr style="font-size: 12px">
                 		<td> {{ $i->cod_item }}</td>
                    		<td>{{ $i->descricao }}</td>
                    		<td>{{ $i->num_aviso_rec }}</td>
@@ -260,18 +260,7 @@ setInterval(function () {
 
 
 
-function soma_mistura(){
-
-	if(solicitadas.value > 0 && misturas.value > 0){
-		total_misturas.value = (solicitadas.value * misturas.value).toFixed(3);;
-	}
-}
-
-
-
-
-
-	soma_mistura()
+window.print();
 	
 	</script>
  <script src="{{ asset ('vendor/bootstrap-4.5.0-dist/js/bootstrap.bundle.js') }}"></script>
