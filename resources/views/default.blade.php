@@ -14,6 +14,27 @@
 
 
     <link rel="stylesheet" type="text/css" href="{{ asset ('assets/datatables.min.css') }}"/>
+    <script src="{{ asset ('vendor/bootstrap-4.5.0-dist/js/bootstrap.bundle.js') }}"></script>
+    <script src="{{ asset ('js/scripts.js') }}"></script>
+    <script src="{{ asset('vendor/datatables-1.10.21/js/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('vendor/datatables-1.10.21/js/dataTables.bootstrap4.min.js') }}"></script>
+
+    <script src="{{ asset('vendor/bootstrap-select-1.13.14/dist/js/bootstrap-select.min.js') }}"></script>
+    <link href="{{ asset ('vendor/bootstrap-select-1.13.14/dist/css/bootstrap-select.min.css') }}" rel="stylesheet"/>
+
+
+{{--    @if (Request::path() == 'requisicoes')--}}
+{{--        <script src="{{ asset('assets/demo/datatables-requisicoes.js') }}"></script>--}}
+
+{{--    @elseif (Request::path() == '/')--}}
+{{--        <script src="{{ asset('assets/demo/datatables-requisicoes.js') }}"></script>--}}
+{{--    @else--}}
+{{--        <script src="{{ asset('assets/demo/datatables-demo.js') }}"></script>--}}
+{{--    @endif--}}
+
+    <script type="text/javascript" src="{{ asset('assets/pdfmake.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset ('assets/vfs_fonts.js') }}"></script>
+    <script type="text/javascript" src="{{ asset ('assets/datatables.min.js')}}"></script>
 
 
 </head>
@@ -82,6 +103,13 @@
                     </a>
 
 
+                    <a class="nav-link" href="{{ url('apontamentos')}}">
+                        <div class="sb-nav-link-icon"><i class="far fa-calendar-alt"></i></div>
+                        Apontamentos
+                    </a>
+
+
+
                     <!--
                          <div class="sb-sidenav-menu-heading">Atualizações</div>
 
@@ -128,27 +156,7 @@
     </div>
 </div>
 
-<script src="{{ asset ('vendor/bootstrap-4.5.0-dist/js/bootstrap.bundle.js') }}"></script>
-<script src="{{ asset ('js/scripts.js') }}"></script>
-<script src="{{ asset('vendor/datatables-1.10.21/js/jquery.dataTables.min.js') }}"></script>
-<script src="{{ asset('vendor/datatables-1.10.21/js/dataTables.bootstrap4.min.js') }}"></script>
 
-<script src="{{ asset('vendor/bootstrap-select-1.13.14/dist/js/bootstrap-select.min.js') }}"></script>
-<link href="{{ asset ('vendor/bootstrap-select-1.13.14/dist/css/bootstrap-select.min.css') }}" rel="stylesheet"/>
-
-
-@if (Request::path() == 'requisicoes')
-    <script src="{{ asset('assets/demo/datatables-requisicoes.js') }}"></script>
-
-@elseif (Request::path() == '/')
-    <script src="{{ asset('assets/demo/datatables-requisicoes.js') }}"></script>
-@else
-    <script src="{{ asset('assets/demo/datatables-demo.js') }}"></script>
-@endif
-
-<script type="text/javascript" src="{{ asset('assets/pdfmake.min.js') }}"></script>
-<script type="text/javascript" src="{{ asset ('assets/vfs_fonts.js') }}"></script>
-<script type="text/javascript" src="{{ asset ('assets/datatables.min.js')}}"></script>
 
 </body>
 </html>

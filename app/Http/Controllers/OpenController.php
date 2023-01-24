@@ -60,6 +60,9 @@ class OpenController extends ControllerOpen
         from estrutura, item
         where estrutura.cod_item_pai like '$id' || '%'
         and item.cod_item=estrutura.cod_item_compon and item.cod_empresa='04' and estrutura.cod_empresa=item.cod_empresa");
+
+
+
         
         if($itens){
             return response()->json($itens);

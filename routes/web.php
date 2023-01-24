@@ -57,6 +57,9 @@ Route::post('requisicoes/tools/', 'RequisicoesController@toolsInsert');
 Route::get('requisicoes/tools/remove/{id}', 'RequisicoesController@toolsRemove')->where('id','[0-9]+');
 
 
+Route::get('apontamentos', 'ApontamentosController@index');
+
+
 
 
 

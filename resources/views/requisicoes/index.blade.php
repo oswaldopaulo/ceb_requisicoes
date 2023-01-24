@@ -1,6 +1,7 @@
 @extends('default')
 @section('content')  
 @include('modalremover')
+<script src="{{ asset('assets/demo/datatables-requisicoes.js') }}"></script>
 <script type="text/javascript">
 	function novo() {
 		
