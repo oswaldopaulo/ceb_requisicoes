@@ -206,7 +206,7 @@
         
     </div>
 </main>
-<script type="text/javascript" src="{{ asset('js/getitem.js')}}"/></script>
+<script type="text/javascript" src="{{ asset('js/getitemtools.js')}}"/></script>
 <script type="text/javascript">
 
 

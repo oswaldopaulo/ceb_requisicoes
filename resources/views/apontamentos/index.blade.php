@@ -1,16 +1,16 @@
 @extends('default')
 @section('content')  
 @include('modalremover')
-<script src="{{ asset('assets/demo/datatables-requisicoes.js') }}"></script>
+<script src="{{ asset('assets/demo/datatables-apontamentos.js') }}"></script>
 <script type="text/javascript">
 	function novo() {
 		
-		window.location.href = "{{ url('requisicoes/novo')}}";
+		window.location.href = "{{ url('apontamentos/novo')}}";
 	}
 
     function novomanual() {
 
-        window.location.href = "{{ url('requisicoes/novomanual')}}";
+        window.location.href = "{{ url('apontamentos/novomanual')}}";
     }
 </script>
 <style>
@@ -21,10 +21,10 @@
 
 <main>
     <div class="container-fluid">
-        <h1 class="mt-4">Requisições</h1>
+        <h1 class="mt-4">Apontamentos</h1>
         <ol class="breadcrumb mb-4">
             <li class="breadcrumb-item"><a href="{{ url ('/') }}">Dashboard</a></li>
-            <li class="breadcrumb-item active">Requisições</li>
+            <li class="breadcrumb-item active">Apontamentos</li>
         </ol>
         
         
@@ -67,7 +67,7 @@
             <div class="card-header">
                  <i class="fas fa-table mr-1"></i>
                                Cadastros @if(!Request::input('all'))
-                                    <small style="text-align: right"> (Filtrado ultimos 500 <a style="color: #0c77af" href="{{ url("requisicoes" . "?all=1") }}"> Mostrar Todos</a>)</small>
+                                    <small style="text-align: right"> (Filtrado ultimos 500 <a style="color: #0c77af" href="{{ url("apontamentos" . "?all=1") }}"> Mostrar Todos</a>)</small>
                                              @endif
             </div>
             <div class="card-body">
@@ -97,8 +97,8 @@
                         @foreach($t as $r)
                             <tr>
                             	<td style="text-align: right">
-                              		<a href="{{ url('requisicoes/tools/' . $r->seq_reg_mestre)}}"> <i class="fas fa-tools mr-1 blue"></i></a>
-                            		<a href="{{ url('requisicoes/editar/' . $r->seq_reg_mestre)}}"> <i class="fas fa-edit mr-1 blue"></i></a>
+                              		<a href="{{ url('apontamentos/tools/' . $r->seq_reg_mestre)}}" title="Insumos e Ferramentas"> <i class="fas fa-tools mr-1 blue"></i></a>
+                            		<a href="{{ url('apontamentos/funcionarios/' . $r->seq_reg_mestre)}}" title="Funcionarios"> <i class="fas fa-users mr-1 blue"></i></a>
                             		</td>
                                 <td>{{$r->empresa}} </td>
                                 <td>{{$r->seq_reg_mestre  }} </td>
