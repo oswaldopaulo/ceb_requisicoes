@@ -40,14 +40,46 @@ class ApontamentosController extends Controller
 //            ->where(['id' => $id])
 //            ->first();
 
+        $funcionarios2 = [];
 
         $ti = DB::connection('oracle')->table('ceb_apontamentos_tools')
             ->where(['id_rec' => $id])
             ->get();
 
+        $func = DB::connection('oracle')->table('ceb_apontamentos_tools_func')
+            ->where(['id_rec' => $id])
+            ->get();
 
-        return view('apontamentos/tools')->with(['id' => $id, 'ti' => $ti]);
+        foreach ($func as $f){
+            array_push($funcionarios2, trim($f->num_matricula));
+        }
 
+
+        return view('apontamentos/tools')->with(['id' => $id, 'ti' => $ti,'funcionarios2'=> $funcionarios2]);
+
+    }
+
+
+    function toolsInsertFunc(){
+
+
+
+        DB::connection('oracle')->table('ceb_apontamentos_tools_func')->where('id_rec',Request::input("id2"))->delete();
+
+        if(Request::input("funcionarios")  && Request::input("id2")){
+
+
+
+
+            foreach (Request::input("funcionarios") as $func){
+                DB::connection('oracle')->table('ceb_apontamentos_tools_func')->insert([
+                    'id_rec'=>Request::input("id2"),
+                    'num_matricula'=>$func,
+                ]);
+            }
+        }
+
+        return redirect()->back()->with(['msg'=>'Funcionários gravados']);
     }
 
     function toolsInsert(ApontamentosRequest  $r)
@@ -88,7 +120,7 @@ class ApontamentosController extends Controller
         }
 
 
-        return redirect()->back();
+        return redirect()->back()->with('msg','Registro adicionado');
     }
 
     function getIdTools()

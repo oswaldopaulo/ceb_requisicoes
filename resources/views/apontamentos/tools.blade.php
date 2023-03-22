@@ -11,7 +11,7 @@
 
     <style>
         .select2-container .select2-selection {
-            height: 150px;
+            height: 110px;
             overflow: scroll;
         }
     </style>
@@ -31,8 +31,18 @@
                 </div>
             </div>
              -->
-            <div class="row equal">
-                <div class="col-md-9">
+            @if(session('msg'))
+                <div class="card text-white bg-success mb-3 msg"
+                     style="padding: 5px">
+                    <div class="text-center card-body">
+                        <strong>Mensagem: </strong>
+                        {{session('msg')}}
+                    </div>
+                </div>
+            @endif
+
+            <div class="row" style="margin-left: 1px">
+                <div class="col-md-9 col-sm-6">
                     <form role="form" action="{{ url('apontamentos/tools')}}" class="form" method="post"
                           enctype="multipart/form-data">
 
@@ -40,18 +50,23 @@
                             <div class="card-header">
                                 <i class="fas fa-table mr-1"></i>
                                 Inserir insumos e acessórios
+
+
                             </div>
 
 
                             <div class="card-body">
 
-                                <div class="card text-white bg-danger mb-3" id="msg"
+                                <div class="card text-white bg-danger mb-3 msg" id="msg"
                                      style="padding: 5px; display: none;">
                                     <div class="card-body">
                                         <strong>Erro! </strong>
                                         Item não encotrado
                                     </div>
                                 </div>
+
+
+
 
                                 @if (!empty($errors->all()))
                                     <div class="alert alert-danger col-lg-12">
@@ -143,25 +158,39 @@
                 <div class="col-md-3 col-sm-6">
 
 
-                        <div class="card mb-4">
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <i class="fas fa-table mr-1"></i>
+                            Funcionários
+                        </div>
+
+                        <form role="form" action="{{ url('apontamentos/tools/func')}}" class="form" method="post"
+                              enctype="multipart/form-data">
+
+                            @csrf
+                            <input type="hidden" name="id2"  value="{{ $id}}"/>
+
+
                             <div class="card-header">
-                                <i class="fas fa-table mr-1"></i>
-                                Funcionários
-                            </div>
-                            <div class="card-header" style="height: 100%">
-                                <select  class="form-control select2 text-sm-left" name="funcionarios" multiple name="funcionarios[]" data-live-search="true">
+
+
+                                <select class="form-control select2 text-sm-left"  multiple
+                                        name="funcionarios[]" data-live-search="true">
 
                                     @foreach($funcionarios as $f)
                                         <option value="{{ $f->num_matricula}}"
-                                                @if(trim($r->cod_fun1 ?? '')==$f->num_matricula) selected="selected" @endif>{{ $f->num_matricula }}
+                                                @if(in_array($f->num_matricula,$funcionarios2,true )) {{' selected '}} @endif>{{ $f->num_matricula }}
                                             - {{ $f->nom_funcionario }}</option>
 
                                     @endforeach
 
                                 </select>
 
+                                <button type="submit" class="btn btn-primary" style="margin-top: 10px">Salvar</button>
+
                             </div>
-                        </div>
+                        </form>
+                    </div>
                 </div>
 
             </div>
@@ -233,13 +262,13 @@
     <script type="text/javascript">
 
 
-        $(document).ready(function() {
+        $(document).ready(function () {
             $('.select2').select2();
         });
 
 
         setInterval(function () {
-            $('#msg').hide(); // show next div
+            $('.msg').hide(); // show next div
         }, 5 * 1000); // do this every 10 seconds
 
 

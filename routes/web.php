@@ -60,6 +60,7 @@ Route::get('requisicoes/tools/remove/{id}', 'RequisicoesController@toolsRemove')
 Route::get('apontamentos', 'ApontamentosController@index');
 Route::get('apontamentos/tools/{id}', 'ApontamentosController@tools');
 Route::post('apontamentos/tools/', 'ApontamentosController@toolsInsert');
+Route::post('apontamentos/tools/func', 'ApontamentosController@toolsInsertFunc');
 Route::get('apontamentos/tools/remove/{id}', 'ApontamentosController@toolsRemove')->where('id','[0-9]+');
 
 
